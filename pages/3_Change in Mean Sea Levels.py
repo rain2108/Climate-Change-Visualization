@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 import altair as alt
 
 # Load and process the data
@@ -62,13 +61,14 @@ st.header("Trend in Mean Sea Levels")
 trend_data = data.groupby("Measure")['Value'].mean().reset_index()
 trend_data = trend_data.sort_values("Value", ascending=True)
 
-# Create a horizontal bar chart using Plotly Express
-fig2 = px.bar(
-    trend_data, 
-    x="Value", 
-    y="Measure", 
-    orientation="h",
+# Create a horizontal bar chart using Altair
+trend_chart = alt.Chart(trend_data).mark_bar().encode(
+    x=alt.X("Value:Q", title="Mean Sea Level Change (mm)"),
+    y=alt.Y("Measure:N", sort='-x', title="Sea"),
+    color=alt.Color("Measure:N", legend=None)
+).properties(
     title="Average Mean Sea Level Change by Sea",
-    labels={"Value": "Mean Sea Level Change (mm)", "Measure": "Sea"}
+    width=1000,
+    height=500,
 )
-st.plotly_chart(fig2, use_container_width=True)
+st.altair_chart(trend_chart, use_container_width=True)
