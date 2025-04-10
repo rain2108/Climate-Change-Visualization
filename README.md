@@ -1,6 +1,6 @@
 # Climate-Change-Visualization
 
-[![Streamlit App](https://img.shields.io/badge/Live%20Demo-Climate-Change-Visualization-blue?logo=streamlit)](https://climate-change-visualization.streamlit.app/)  
+[![Streamlit App](https://img.shields.io/badge/Live%20Demo-Streamlit-blue?logo=streamlit)](https://climate-change-visualization.streamlit.app/)  
 An interactive **Streamlit** application to explore and visualize key climate change indicators over time.
 
 ---
